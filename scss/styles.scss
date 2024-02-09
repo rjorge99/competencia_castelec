@@ -1,3 +1,105 @@
+:root {
+    --bg-white: #ffffff;
+    --bg-dark-gray: #3e3e3e;
+    --fnt-dark-gray: #3e3e3e;
+    --fnt-light-blue: #76bae7;
+}
+
+
 body {
-    background-color: blue;
+    font-family: 'Montserrat', sans-serif;
+}
+
+// Helpers
+.container {
+    max-width: 1700px;
+}
+
+
+// Navbar
+.navbar-navigation-icon {
+    max-width: 35px;
+    max-height: 25px;
+    padding: 3px;    
+    cursor: pointer;
+}
+
+.sidenav {
+    height: calc(100vh - 41px);
+    width: 330px;    
+    z-index: 11000;
+    left: -450px;
+    position: absolute;    
+    background-color: var(--bg-dark-gray);    
+    box-shadow: 15px 0 20px rgb(0 0 0/65%);
+
+    transition: all .4s ease-in-out;
+
+    &.show {
+        left: 0;
+    }
+}
+
+
+// Bootstrap overrides
+.navbar {
+    font-weight: bold;
+}
+
+.navbar-nav { 
+    width: 100%;
+    justify-content: space-between;
+}
+
+.nav-link {
+    flex-grow: 1;
+    text-align: right;
+
+    &.ventajas {
+        flex-grow: 2;
+        text-align: left;
+    }
+}
+
+.navbar--light {
+    background-color: var(--bg-white);
+
+    & .nav-link {
+        color: var(--fnt-dark-gray);
+    }
+
+    & .nav-link {
+        color: var(--fnt-dark-gray);
+    }
+
+    & .nav-link.active {
+        color: var(--fnt-light-blue);
+    }
+}
+
+@media screen and (max-width:992px){
+    .navbar {
+        background-color: var(--bg-dark-gray);
+    }    
+
+    .navbar>.container-fluid {
+        justify-content: flex-end;
+    }
+
+    .navbar-nav {
+        display: none;
+    }
+}
+
+@media screen and (min-width:993px){
+    .sidenav {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width:1015px){
+    .navbar {
+        font-size: 14px;
+    }        
 }
