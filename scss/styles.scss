@@ -15,13 +15,21 @@ body {
     max-width: 1700px;
 }
 
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+}
 
 // Navbar
 .navbar-navigation-icon {
     max-width: 35px;
     max-height: 25px;
     padding: 3px;    
-    cursor: pointer;
+    cursor: pointer;    
 }
 
 .sidenav {
@@ -32,58 +40,78 @@ body {
     position: absolute;    
     background-color: var(--bg-dark-gray);    
     box-shadow: 15px 0 20px rgb(0 0 0/65%);
-
     transition: all .4s ease-in-out;
+    padding: 2rem;
 
     &.show {
         left: 0;
+    }
+
+    & .sidenav-container {
+        & .nav-link {            
+            color: var(--bg-white);
+            font-size: .8rem;              
+        }
+    }
+
+    & .sidenav__list {
+        display: flex;
+        flex-direction: column;        
+
+        & li {
+            height: 60px;
+            border-bottom: rgba(255,255,255,.2) solid 1px;
+            display: flex;
+            align-items: center;           
+        }
     }
 }
 
 
 // Bootstrap overrides
-.navbar {
-    font-weight: bold;
-}
-
-.navbar-nav { 
-    width: 100%;
-    justify-content: space-between;
-}
-
-.nav-link {
-    flex-grow: 1;
-    text-align: right;
-
-    &.ventajas {
-        flex-grow: 2;
-        text-align: left;
-    }
-}
-
-.navbar--light {
+.navbar {    
     background-color: var(--bg-white);
 
     & .nav-link {
-        color: var(--fnt-dark-gray);
+        flex-grow: 1;
+        text-align: right;
+    
+        &.ventajas {
+            flex-grow: 2;
+            text-align: left;
+        }
     }
+
+    & .navbar-nav { 
+        width: 100%;
+        justify-content: space-between;
+    }      
 
     & .nav-link {
-        color: var(--fnt-dark-gray);
-    }
+        color: var(--fnt-dark-gray);        
 
+        &:hover {
+            font-weight: bold;
+        }
+    }
+}
+
+.navigation {
     & .nav-link.active {
         color: var(--fnt-light-blue);
     }
 }
 
+// Media
 @media screen and (max-width:992px){
     .navbar {
         background-color: var(--bg-dark-gray);
-    }    
+    }        
 
-    .navbar>.container-fluid {
+    .navbar .container-fluid {
+        display: flex;
         justify-content: flex-end;
+        padding-inline: 0;
     }
 
     .navbar-nav {
@@ -92,14 +120,17 @@ body {
 }
 
 @media screen and (min-width:993px){
+    .navbar-navigation-icon {
+        display: none;
+    }
+
     .sidenav {
         display: none;
     }
 }
 
-
 @media screen and (max-width:1015px){
     .navbar {
-        font-size: 14px;
+        font-size: .9rem;
     }        
 }

@@ -1,9 +1,11 @@
 const api = (function () {
     function toggleSideMenu(target) {
         const sidenav = document.getElementById('sidenav');
-        sidenav.classList.toggle('show');
+        const imageElement = target;
+        const isCurremtHamburguer = imageElement.src.includes('images/hamburguer-icon.svg');
 
-        console.log(target);
+        sidenav.classList.toggle('show');
+        imageElement.src = isCurremtHamburguer ? 'images/arrow-icon.svg' : 'images/hamburguer-icon.svg';
     }
 
     return {
