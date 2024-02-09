@@ -1,5 +1,5 @@
 name: Deploy
-run-name: ${{ github.actor }} is learning GitHub Actions
+run-name: ${{ github.actor }} deploying page...
 on:
     push:
         branches:
@@ -15,4 +15,4 @@ jobs:
               uses: crazy-max/ghaction-github-pages@v4
               with:
                   target_branch: gh-pages
-                  build_dir: public
+                  build_dir: ./
