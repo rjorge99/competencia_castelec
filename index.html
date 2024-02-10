@@ -17,45 +17,126 @@
     </head>
     <body>
         <!-- Navigation -->
-        <section>
-            <nav class="navbar navbar-expand-lg navigation">
-                <div class="container">
-                    <div class="container-fluid">
-                        <img
-                            class="navbar-navigation-icon"
-                            src="images/hamburguer-icon.svg"
-                            alt="hamburguer-icon"
-                            onclick="api.toggleSideMenu(this)" />
-                        <div class="collapse navbar-collapse">
-                            <div class="navbar-nav">
-                                <a class="nav-link active ventajas" href="#">Ventajas principales</a>
-                                <a class="nav-link" href="#">Generales</a>
-                                <a class="nav-link" href="#">Ventas</a>
-                                <a class="nav-link" href="#">Almacén</a>
-                                <a class="nav-link" href="#">Contabilidad</a>
-                                <a class="nav-link" href="#">Disposiciones fiscales</a>
-                                <a class="nav-link" href="#">Solicitar demostración</a>
+
+        <nav class="navbar fixed-top navbar-expand-lg navigation">
+            <img
+                class="navbar-navigation-icon"
+                src="images/hamburguer-icon.svg"
+                alt="hamburguer-icon"
+                onclick="api.toggleSideMenu(this)" />
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse">
+                        <div class="navbar-nav">
+                            <a class="nav-link active ventajas" href="#">Ventajas principales</a>
+                            <a class="nav-link" href="#">Generales</a>
+                            <a class="nav-link" href="#">Ventas</a>
+                            <a class="nav-link" href="#">Almacén</a>
+                            <a class="nav-link" href="#">Contabilidad</a>
+                            <a class="nav-link" href="#">Disposiciones fiscales</a>
+                            <a class="nav-link" href="#">Solicitar demostración</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav id="sidenav" class="sidenav navigation">
+            <div class="sidenav-container">
+                <ul class="sidenav__list">
+                    <li><a class="nav-link active" href="#">Ventajas principales</a></li>
+                    <li><a class="nav-link" href="#">Generales</a></li>
+                    <li><a class="nav-link" href="#">Ventas</a></li>
+                    <li><a class="nav-link" href="#">Almacén</a></li>
+                    <li><a class="nav-link" href="#">Contabilidad</a></li>
+                    <li><a class="nav-link" href="#">Disposiciones fiscales</a></li>
+                    <li><a class="nav-link" href="#">Solicitar demostración</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Ventajas principales -->
+        <section class="ventajas-principales">
+            <div class="container">
+                <div class="grid grid--1x2">
+                    <div class="resume-content">
+                        <div class="resume-content__header">
+                            <div class="resume-content__header__ventajas">Ventajas de</div>
+                            <img src="images/alpha_erp.png" alt="Imagen aplpha" />
+                            <div class="otros-div">
+                                <span class="resume-content__header__vs">vs</span>
+                                <img class="resume-content__header__img" src="images/otros_.png" alt="Logo de Otros" />
+                            </div>
+                        </div>
+                        <div class="resume-content__image">
+                            <img src="images/ventaja_alpha_.png" alt="" />
+                        </div>
+                        <div class="resume-content__buttons">
+                            <button class="button button--small-font button--blue">Solicite una demostración</button>
+                            <button class="button button--dark">castelec.mx</button>
+                        </div>
+                    </div>
+                    <div class="resume-table">
+                        <div class="listado-ventajas">
+                            <div class="listado-ventajas__ventaja">
+                                <img class="listado-ventajas__imagen" src="images/principal_1.png" alt="Mapa Mexico" />
+                                <div class="listado-ventajas__texto">
+                                    Software ERP hecho en México, para las empresas de México.
+                                </div>
+                            </div>
+                            <div class="listado-ventajas__ventaja">
+                                <img class="listado-ventajas__imagen" src="images/principal_2.png" alt="Mapa Mexico" />
+                                <div class="listado-ventajas__texto">
+                                    Cumpliendo al 100% de las obligaciones fiscales del SAT como la emisión de CFDI, complemento
+                                    de recepción de pagos, carta porte, complemento de comercio exterior, contabilidad electrónica
+                                    y recibos de nómina electrónicos. Todo totalmente integrado en el sistema y sin conectores
+                                    externos.
+                                </div>
+                            </div>
+                            <div class="listado-ventajas__ventaja">
+                                <img class="listado-ventajas__imagen" src="images/principal_3.png" alt="Mapa Mexico" />
+                                <div class="listado-ventajas__texto">
+                                    Soporte directo de la casa productora del software, sin intermediarios ni distribuidores, y
+                                    brindando por consultores expertos en el software.
+                                </div>
+                            </div>
+                            <div class="listado-ventajas__ventaja">
+                                <img class="listado-ventajas__imagen" src="images/principal_4.png" alt="Mapa Mexico" />
+                                <div class="listado-ventajas__texto">
+                                    Soporte presencial en las ciudades donde Castelec tiene oficinas y remoto para cualquier
+                                    estado de la República Mexicana.
+                                </div>
+                            </div>
+                            <div class="listado-ventajas__ventaja">
+                                <img class="listado-ventajas__imagen" src="images/principal_5.png" alt="Mapa Mexico" />
+                                <div class="listado-ventajas__texto">
+                                    Posibiliidad de cotizar adecuaciones a la medida. Si usted paga por alguna adecuación, esta
+                                    permanece en ALPHA ERP desde la versión que usted pagó y hacia adelante. En futuras
+                                    actualizacoines no tiene que volver a pagar la adecuación.
+                                </div>
+                            </div>
+                            <div class="listado-ventajas__ventaja">
+                                <img class="listado-ventajas__imagen" src="images/principal_6.png" alt="Mapa Mexico" />
+                                <div class="listado-ventajas__texto">El sistema está completamente en español.</div>
+                            </div>
+                            <div class="listado-ventajas__ventaja">
+                                <img class="listado-ventajas__imagen" src="images/principal_7.png" alt="Mapa Mexico" />
+                                <div class="listado-ventajas__texto">
+                                    Módulo de Business Intelligence potente e integrado para hacer consultas con gráficas y tablas
+                                    comparativas.
+                                </div>
+                            </div>
+                            <div class="listado-ventajas__ventaja">
+                                <img class="listado-ventajas__imagen" src="images/principal_8.png" alt="Mapa Mexico" />
+                                <div class="listado-ventajas__texto">
+                                    Banca ALPHA ERP para lograr una verdadera automatización de pagos y cobros mediante
+                                    transferencias electrónicas SPEI.
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </nav>
-            <nav id="sidenav" class="sidenav navigation">
-                <div class="sidenav-container">
-                    <ul class="sidenav__list">
-                        <li><a class="nav-link active" href="#">Ventajas principales</a></li>
-                        <li><a class="nav-link" href="#">Generales</a></li>
-                        <li><a class="nav-link" href="#">Ventas</a></li>
-                        <li><a class="nav-link" href="#">Almacén</a></li>
-                        <li><a class="nav-link" href="#">Contabilidad</a></li>
-                        <li><a class="nav-link" href="#">Disposiciones fiscales</a></li>
-                        <li><a class="nav-link" href="#">Solicitar demostración</a></li>
-                    </ul>
-                </div>
-            </nav>
+            </div>
         </section>
-
-        <!-- Ventajas principales -->
 
         <script src="scripts/script.js"></script>
     </body>
