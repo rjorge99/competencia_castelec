@@ -24,20 +24,18 @@ const api = (function () {
 
     document.addEventListener('scroll', function () {
         const principalSection = document.querySelector('#principales');
+        const demostracionSection = document.querySelector('#demostracion');
+        let scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
         if (principalSection) {
-            var scrollPosition = window.scrollY || document.documentElement.scrollTop;
-
-            if (
-                scrollPosition >= principalSection.offsetTop &&
-                scrollPosition < principalSection.offsetTop + principalSection.offsetHeight
-            ) {
-                // El top del documento está dentro del elemento section                document.body.classList.add('nuevaClase'); // Reemplaza "nuevaClase" con el nombre de la clase que deseas agregar
+            if (scrollPosition >= principalSection.offsetTop && scrollPosition < principalSection.offsetTop + principalSection.offsetHeight)
                 document.getElementsByClassName('navbar')[0].classList.remove('navbar--dark');
-            } else {
-                // El top del documento no está dentro del elemento section
-                document.getElementsByClassName('navbar')[0].classList.add('navbar--dark');
-            }
+            else document.getElementsByClassName('navbar')[0].classList.add('navbar--dark');
+        }
+        if (demostracionSection) {
+            if (scrollPosition >= demostracionSection.offsetTop && scrollPosition < demostracionSection.offsetTop + demostracionSection.offsetHeight)
+                document.getElementsByClassName('navbar')[0].classList.add('navbar--blue');
+            else document.getElementsByClassName('navbar')[0].classList.remove('navbar--blue');
         }
     });
 

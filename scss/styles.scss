@@ -9,8 +9,10 @@
     --bg-row-light-gray: #ececec;
     --bg-row-dark-gray: #dfdfdf;
     --bg-button-gray: #c2c2c2;
+    --bg-input: #cee6f4;
     --fnt-dark-gray: #3e3e3e;
     --fnt-blue: #76bae5;
+    --fnt-dark-blue: #2d5372;
     --fnt-light-blue: #76bae7;
     --fnt-light-blue-hover: #82c5ff;
 }
@@ -81,9 +83,15 @@ img {
     border: 0;
     font-size: 0.8rem;
 
+    & a {
+        text-decoration: none;
+    }
+
     &.button--blue {
         background-color: var(--fnt-light-blue);
-        color: #ffffff;
+        & a {
+            color: #ffffff;
+        }
 
         &:hover {
             background-color: var(--fnt-light-blue-hover);
@@ -92,7 +100,10 @@ img {
 
     &.button--dark {
         background-color: var(--bg-dark-gray);
-        color: #ffffff;
+
+        & a {
+            color: #ffffff;
+        }
 
         &:hover {
             background-color: var(--bg-dark-gray-hover);
@@ -104,9 +115,18 @@ img {
         color: var(--fnt-dark-gray);
         font-weight: bold;
 
+        & a {
+            color: var(--fnt-dark-gray);
+        }
+
         &:hover {
             background: var(--bg-light-gray);
         }
+    }
+
+    &.button--blue-dark {
+        background-color: var(--fnt-dark-blue);
+        color: var(--bg-white);
     }
 
     &.button--small-font {
@@ -234,7 +254,7 @@ li {
 
         & .resumen-content__section-name {
             color: var(--fnt-blue);
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             line-height: 3rem;
             font-weight: bold;
             letter-spacing: 1px;
@@ -347,6 +367,22 @@ li {
     }
 }
 
+.demostracion {
+    background-color: var(--fnt-blue);
+    padding-block: 7rem;
+    height: 100vh;
+
+    & .demostracion-title {
+        font-weight: bold;
+        color: var(--fnt-dark-blue);
+        margin-bottom: 1.5rem;
+    }
+
+    .demostracion-footer {
+        font-size: 0.6rem;
+    }
+}
+
 // Bootstrap overrides
 .navbar {
     background-color: var(--bg-white);
@@ -387,9 +423,43 @@ li {
     }
 }
 
+.form-label {
+    margin-bottom: 3px;
+    color: var(--bg-white);
+    font-size: 0.9rem;
+}
+
+.form-control,
+.form-select,
+.form-floating > label {
+    border-radius: 20px;
+    font-size: 0.7rem;
+    color: var(--bg-dark-gray-hover);
+    background-color: var(--bg-input);
+    border: none;
+
+    &:focus {
+        border: none;
+        outline: 0;
+        box-shadow: none;
+        background-color: var(--bg-input);
+    }
+}
+
+textarea.form-control {
+    border-radius: 15px;
+    resize: none;
+}
+
+.form-text {
+    font-size: 0.6rem;
+    color: var(--fnt-dark-blue);
+}
+
 .navigation {
     & .nav-link.active {
         color: var(--fnt-light-blue);
+        font-weight: 600;
     }
 }
 
@@ -417,6 +487,18 @@ li {
 @media screen and (min-width: 993px) {
     .navbar.navbar--dark {
         background-color: var(--bg-darker-gray);
+    }
+
+    .navbar.navbar--blue {
+        background-color: var(--fnt-blue) !important;
+
+        & .nav-link {
+            color: var(--bg-white);
+        }
+
+        .nav-link.active {
+            color: var(--fnt-dark-blue);
+        }
     }
 
     .navbar-navigation-icon {
@@ -464,6 +546,14 @@ li {
         & .tabla-ventajas .img-otros {
             max-width: 40px;
         }
+    }
+
+    .resumen-content__section-name {
+        color: var(--fnt-blue);
+        font-size: 2.2rem;
+        line-height: 3rem;
+        font-weight: bold;
+        letter-spacing: 1px;
     }
 }
 
