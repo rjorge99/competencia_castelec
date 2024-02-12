@@ -2,10 +2,18 @@
     --bg-white: #ffffff;
     --bg-dark-gray: #3e3e3e;
     --bg-dark-gray-hover: #646464;
+    --bg-scrollbar: #d7d7d7;
     --bg-light-gray: #f2f2f2;
+    --bg-light-white: #f9f9f9;
+    --bg-darker-gray: #e3e3e3;
+    --bg-row-light-gray: #ececec;
+    --bg-row-dark-gray: #dfdfdf;
+    --bg-button-gray: #c2c2c2;
     --fnt-dark-gray: #3e3e3e;
-    --fnt-light-blue: #76bae7;    
+    --fnt-blue: #76bae5;
+    --fnt-light-blue: #76bae7;
     --fnt-light-blue-hover: #82c5ff;
+    
 }
 
 
@@ -17,6 +25,16 @@ body {
 img {
     max-width: 100%;
     display: block;
+}
+
+.bg-darker-gray {
+    background: var(--bg-darker-gray);
+}
+
+
+
+body {        
+    scrollbar-color: var(--bg-light-white) var(--bg-scrollbar);
 }
 
 
@@ -47,6 +65,16 @@ img {
 
         &:hover{
             background-color: var(--bg-dark-gray-hover);
+        }
+    }
+
+    &.button-gray {
+        background: var(--bg-button-gray);
+        color: var(--fnt-dark-gray);
+        font-weight: bold;
+
+        &:hover {
+            background: var(--bg-light-gray);
         }
     }
 
@@ -83,6 +111,113 @@ ul {
 
 li {
     list-style-type: none;
+}
+
+.ventajas-secundarias {       
+    & .resume-content {
+        display: block;
+    }
+
+    & .tabla-ventajas {        
+        background-color: var(--bg-light-white);        
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-top-right-radius: 20px;
+
+        & tbody { 
+            display:block;
+            height:400px;
+            overflow:auto;
+        }
+
+        & thead, 
+        & tbody tr {
+            display:table;
+            width:100%;
+            table-layout:fixed;
+        }
+
+        & thead>tr>th:first-of-type, 
+        & tbody>tr>td:first-child {
+            width: 80%;
+        }
+
+        & thead {
+            width: calc( 100% - 1.1em );
+
+            & .head-image {
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        & .img-alpha {
+            max-width: 50px;
+        }
+
+        & .img-otros {
+            max-width: 40px;
+        }
+
+        & .imagen-check {
+            max-width: 20px;
+        }
+
+        & .header-text {
+            font-size: .9rem;     
+                        
+        }
+        
+        &  .table-text {
+            font-size: .7rem;            
+        }
+
+        & thead>tr>th:first-of-type,
+        & tbody>tr>td:first-of-type {
+            padding-left: 40px;
+        }
+
+        & tbody>tr:nth-child(2n+1),
+        & thead>tr>th:nth-child(2){
+            background-color: var(--bg-row-light-gray);
+        }
+
+        & tbody>tr>td:nth-child(2) {
+            background-color: var(--bg-row-dark-gray);
+        }
+
+
+        & td,
+        & th {
+            // padding-inline: 15px;
+            padding-block: 12px;
+        }
+        
+    }
+
+
+    & .resume-content .resume-content__buttons {
+        justify-content: flex-start;
+    }
+
+    & .resume-content__header {        
+        color: var(--fnt-dark-gray);
+        font-size: 1.5rem;
+        font-style: italic;
+        font-weight: bold;
+
+        & .resumen-content__section-name {
+            color: var(--fnt-blue);
+            font-size: 2.8rem;
+            line-height: 3rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+    }    
+    & .resume-content__image { 
+        max-width: 155px;
+        margin-block: 2rem;
+    }
 }
 
 // Navbar
@@ -273,6 +408,18 @@ li {
 @media screen and (min-width: 1000px) {
     .grid--1x2 {
         grid-template-columns: repeat(2, 1fr)
+    }
+
+    .ventajas-principales {        
+        margin-bottom: 8rem;
+    }
+
+    .ventajas-secundarias {    
+        padding-block: 8rem;
+
+        & .resume-content {
+            margin-top: 3rem;
+        }
     }
 }
 
