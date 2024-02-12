@@ -352,6 +352,8 @@ li {
     background-color: var(--bg-white);
     justify-content: flex-end;
 
+    transition: all 0.1s ease-in;
+
     & .container {
         display: none;
     }
@@ -382,6 +384,10 @@ li {
         &:hover {
             font-weight: bold;
         }
+    }
+
+    &.navbar--dark {
+        background-color: var(--bg-darker-gray);
     }
 }
 
