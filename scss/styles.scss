@@ -60,60 +60,12 @@ img {
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(96, 96, 96)'><polygon points='50,00 0,50 100,50'/></svg>");
     }
 
-    & ::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(112, 112, 112)'><polygon points='50,00 0,50 100,50'/></svg>");
-    }
-
-    & ::-webkit-scrollbar-button:single-button:vertical:decrement:active {
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(128, 128, 128)'><polygon points='50,00 0,50 100,50'/></svg>");
-    }
-
     /* Down */
     & ::-webkit-scrollbar-button:single-button:vertical:increment {
         height: 12px;
         width: 16px;
         background-position: center 2px;
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(96, 96, 96)'><polygon points='0,0 100,0 50,50'/></svg>");
-    }
-
-    & ::-webkit-scrollbar-button:single-button:vertical:increment:hover {
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(112, 112, 112)'><polygon points='0,0 100,0 50,50'/></svg>");
-    }
-
-    & ::-webkit-scrollbar-button:single-button:vertical:increment:active {
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(128, 128, 128)'><polygon points='0,0 100,0 50,50'/></svg>");
-    }
-
-    /* Left */
-    & ::-webkit-scrollbar-button:single-button:horizontal:decrement {
-        height: 12px;
-        width: 12px;
-        background-position: 3px 3px;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(96, 96, 96)'><polygon points='0,50 50,100 50,0'/></svg>");
-    }
-
-    & ::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(112, 112, 112)'><polygon points='0,50 50,100 50,0'/></svg>");
-    }
-
-    & ::-webkit-scrollbar-button:single-button:horizontal:decrement:active {
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(128, 128, 128)'><polygon points='0,50 50,100 50,0'/></svg>");
-    }
-
-    /* Right */
-    & ::-webkit-scrollbar-button:single-button:horizontal:increment {
-        height: 12px;
-        width: 12px;
-        background-position: 3px 3px;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(96, 96, 96)'><polygon points='0,0 0,100 50,50'/></svg>");
-    }
-
-    & ::-webkit-scrollbar-button:single-button:horizontal:increment:hover {
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(112, 112, 112)'><polygon points='0,0 0,100 50,50'/></svg>");
-    }
-
-    & ::-webkit-scrollbar-button:single-button:horizontal:increment:active {
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(128, 128, 128)'><polygon points='0,0 0,100 50,50'/></svg>");
     }
 }
 
@@ -190,7 +142,7 @@ li {
 }
 
 .ventajas-secundarias {
-    padding-block: 5rem;
+    padding-block: 2rem;
 
     & .resume-content {
         display: block;
@@ -215,6 +167,10 @@ li {
                 &:nth-child(1n) {
                     background-color: var(--bg-light-white);
                 }
+
+                &:first-child {
+                    width: 80%;
+                }
             }
 
             // width: calc( 100% - 1.1em );
@@ -227,11 +183,11 @@ li {
         }
 
         & .img-alpha {
-            max-width: 50px;
+            max-width: 40px;
         }
 
         & .img-otros {
-            max-width: 40px;
+            max-width: 30px;
         }
 
         & .imagen-check {
@@ -285,7 +241,7 @@ li {
         }
     }
     & .resume-content__image {
-        max-width: 155px;
+        max-width: 110px;
         margin-block: 2rem;
     }
 }
@@ -489,6 +445,18 @@ li {
 
         & .resume-content {
             margin-top: 1rem;
+        }
+
+        & .resume-content__image {
+            max-width: 125px;
+        }
+
+        & .tabla-ventajas .img-alpha {
+            max-width: 50px;
+        }
+
+        & .tabla-ventajas .img-otros {
+            max-width: 40px;
         }
     }
 }

@@ -28,13 +28,13 @@
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse">
                         <div class="navbar-nav">
-                            <a class="nav-link active ventajas" href="#">Ventajas principales</a>
-                            <a class="nav-link" href="#">Generales</a>
-                            <a class="nav-link" href="#">Ventas</a>
-                            <a class="nav-link" href="#">Almacén</a>
-                            <a class="nav-link" href="#">Contabilidad</a>
-                            <a class="nav-link" href="#">Disposiciones fiscales</a>
-                            <a class="nav-link" href="#">Solicitar demostración</a>
+                            <a class="nav-link active ventajas lnkprincipales" href="#principales">Ventajas principales</a>
+                            <a class="nav-link lnkgenerales" href="#generales">Generales</a>
+                            <a class="nav-link lnkventas" href="#ventas">Ventas</a>
+                            <a class="nav-link lnkalmacen" href="#almacen">Almacén</a>
+                            <a class="nav-link lnkcontabilidad" href="#contabilidad">Contabilidad</a>
+                            <a class="nav-link lnkdisposiciones" href="#disposiciones">Disposiciones fiscales</a>
+                            <a class="nav-link lnkdemostracion" href="#demostracion">Solicitar demostración</a>
                         </div>
                     </div>
                 </div>
@@ -43,13 +43,13 @@
         <nav id="sidenav" class="sidenav navigation">
             <div class="sidenav-container">
                 <ul class="sidenav__list">
-                    <li><a class="nav-link active" href="#">Ventajas principales</a></li>
-                    <li><a class="nav-link" href="#">Generales</a></li>
-                    <li><a class="nav-link" href="#">Ventas</a></li>
-                    <li><a class="nav-link" href="#">Almacén</a></li>
-                    <li><a class="nav-link" href="#">Contabilidad</a></li>
-                    <li><a class="nav-link" href="#">Disposiciones fiscales</a></li>
-                    <li><a class="nav-link" href="#">Solicitar demostración</a></li>
+                    <li><a class="nav-link active lnkprincipales" href="#principales">Ventajas principales</a></li>
+                    <li><a class="nav-link lnkgenerales" href="#generales">Generales</a></li>
+                    <li><a class="nav-link lnkventas" href="#ventas">Ventas</a></li>
+                    <li><a class="nav-link lnkventas" href="#almacen">Almacén</a></li>
+                    <li><a class="nav-link lnkcontabilidad" href="#contabilidad">Contabilidad</a></li>
+                    <li><a class="nav-link lnkdisposiciones" href="#disposiciones">Disposiciones fiscales</a></li>
+                    <li><a class="nav-link lnkdemostracion" href="#demostracion">Solicitar demostración</a></li>
                 </ul>
             </div>
         </nav>
@@ -139,7 +139,7 @@
         </section>
 
         <!-- Generales -->
-        <section id="almacen" class="almacen ventajas-secundarias bg-darker-gray">
+        <section id="generales" class="almacen ventajas-secundarias bg-darker-gray">
             <div class="container">
                 <div class="grid grid--1x2">
                     <div class="resume-content">
@@ -241,7 +241,7 @@
                                 <tr>
                                     <td class="table-text">
                                         Permite cambiar TC en documentos y es posible poner autorización para que sólo ciertos.
-                                        usuarios lo hagan
+                                        usuarios lo hagan.
                                     </td>
                                     <td align="center"><img class="imagen-check" src="images/check.png" alt="Check" /></td>
                                     <td></td>
@@ -250,6 +250,61 @@
                                     <td class="table-text">
                                         Comunicados masivos personalizados con variables de Clientes, Prospectos y Proveedores.
                                     </td>
+                                    <td align="center"><img class="imagen-check" src="images/check.png" alt="Check" /></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ventas -->
+        <section id="ventas" class="almacen ventajas-secundarias bg-darker-gray">
+            <div class="container">
+                <div class="grid grid--1x2">
+                    <div class="resume-content">
+                        <div class="resume-content__header">
+                            <div class="resume-content__header__ventajas">Ventajas en</div>
+                            <div class="resumen-content__section-name">ventas</div>
+                        </div>
+                        <div class="resume-content__image">
+                            <img src="images/ventas_.png" alt="" />
+                        </div>
+                        <div class="resume-content__buttons">
+                            <button class="button button-gray">Solicite una demostración</button>
+                        </div>
+                    </div>
+                    <div class="resume-table">
+                        <table class="tabla-ventajas">
+                            <thead>
+                                <tr>
+                                    <th class="header-text">
+                                        <div>FUNCIONALIDAD</div>
+                                    </th>
+                                    <th>
+                                        <div class="head-image">
+                                            <img class="img-alpha" src="images/alpha_erp_.png" alt="Imagen alpha" />
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="head-image">
+                                            <img class="img-otros" src="images/otros_.png" alt="Imagen otros" />
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="table-text">
+                                        Catálogos bien identificados y por separado de Prospectos y Clientes.
+                                    </td>
+                                    <td align="center"><img class="imagen-check" src="images/check.png" alt="Check" /></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-text">Límite de crédito particular por cliente.</td>
                                     <td align="center"><img class="imagen-check" src="images/check.png" alt="Check" /></td>
                                     <td></td>
                                 </tr>
@@ -299,29 +354,29 @@
                                 <tr>
                                     <td class="table-text">
                                         Consulta de inventario dinámica con detalle de almacenes, Lotes-Números de serie-Pedimento
-                                        y Tráfico de producto en la misma pantalla
+                                        y Tráfico de producto en la misma pantalla.
                                     </td>
                                     <td align="center"><img class="imagen-check" src="images/check.png" alt="Check" /></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-text">Costos detallados por producto</td>
+                                    <td class="table-text">Costos detallados por producto.</td>
                                     <td align="center"><img class="imagen-check" src="images/check.png" alt="Check" /></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-text">Costeo detallado por L/S/P</td>
+                                    <td class="table-text">Costeo detallado por L/S/P.</td>
                                     <td align="center"><img class="imagen-check" src="images/check.png" alt="Check" /></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td class="table-text">Selección sencilla de Tipo de movimiento de almacén</td>
+                                    <td class="table-text">Selección sencilla de Tipo de movimiento de almacén.</td>
                                     <td align="center"><img class="imagen-check" src="images/check.png" alt="Check" /></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td class="table-text">
-                                        Reporte de Saldos y movimientos de almacén (Kardex de producto) sencillo
+                                        Reporte de Saldos y movimientos de almacén (Kardex de producto) sencillo.
                                     </td>
                                     <td align="center"><img class="imagen-check" src="images/check.png" alt="Check" /></td>
                                     <td></td>
@@ -341,6 +396,118 @@
             </div>
         </section>
 
+        <!-- Contabilidad -->
+        <section id="contabilidad" class="almacen ventajas-secundarias bg-darker-gray">
+            <div class="container">
+                <div class="grid grid--1x2">
+                    <div class="resume-content">
+                        <div class="resume-content__header">
+                            <div class="resume-content__header__ventajas">Ventajas en</div>
+                            <div class="resumen-content__section-name">cotnabilidad</div>
+                        </div>
+                        <div class="resume-content__image">
+                            <img src="images/contabilidad_.png" alt="" />
+                        </div>
+                        <div class="resume-content__buttons">
+                            <button class="button button-gray">Solicite una demostración</button>
+                        </div>
+                    </div>
+                    <div class="resume-table">
+                        <table class="tabla-ventajas">
+                            <thead>
+                                <tr>
+                                    <th class="header-text">
+                                        <div>FUNCIONALIDAD</div>
+                                    </th>
+                                    <th>
+                                        <div class="head-image">
+                                            <img class="img-alpha" src="images/alpha_erp_.png" alt="Imagen alpha" />
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="head-image">
+                                            <img class="img-otros" src="images/otros_.png" alt="Imagen otros" />
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr>
+                                    <td class="table-text">
+                                        Catálogos bien identificados y por separado de Prospectos y Clientes.
+                                    </td>
+                                    <td align="center"><img class="imagen-check" src="images/check.png" alt="Check" /></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-text">Límite de crédito particular por cliente.</td>
+                                    <td align="center"><img class="imagen-check" src="images/check.png" alt="Check" /></td>
+                                    <td></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disposiciones fiscales -->
+        <section id="disposiciones" class="almacen ventajas-secundarias bg-darker-gray">
+            <div class="container">
+                <div class="grid grid--1x2">
+                    <div class="resume-content">
+                        <div class="resume-content__header">
+                            <div class="resume-content__header__ventajas">Ventajas en</div>
+                            <div class="resumen-content__section-name">disposiciones fiscales</div>
+                        </div>
+                        <div class="resume-content__image">
+                            <img src="images/disposiciones_fiscales_.png" alt="" />
+                        </div>
+                        <div class="resume-content__buttons">
+                            <button class="button button-gray">Solicite una demostración</button>
+                        </div>
+                    </div>
+                    <div class="resume-table">
+                        <table class="tabla-ventajas">
+                            <thead>
+                                <tr>
+                                    <th class="header-text">
+                                        <div>FUNCIONALIDAD</div>
+                                    </th>
+                                    <th>
+                                        <div class="head-image">
+                                            <img class="img-alpha" src="images/alpha_erp_.png" alt="Imagen alpha" />
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="head-image">
+                                            <img class="img-otros" src="images/otros_.png" alt="Imagen otros" />
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr>
+                                    <td class="table-text">
+                                        Catálogos bien identificados y por separado de Prospectos y Clientes.
+                                    </td>
+                                    <td align="center"><img class="imagen-check" src="images/check.png" alt="Check" /></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="table-text">Límite de crédito particular por cliente.</td>
+                                    <td align="center"><img class="imagen-check" src="images/check.png" alt="Check" /></td>
+                                    <td></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demostracion -->
+        <section id="demostracion">Demostracion</section>
         <script src="scripts/script.js"></script>
     </body>
 </html>
