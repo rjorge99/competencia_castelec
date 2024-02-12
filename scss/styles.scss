@@ -385,10 +385,6 @@ li {
             font-weight: bold;
         }
     }
-
-    &.navbar--dark {
-        background-color: var(--bg-darker-gray);
-    }
 }
 
 .navigation {
@@ -419,6 +415,10 @@ li {
 }
 
 @media screen and (min-width: 993px) {
+    .navbar.navbar--dark {
+        background-color: var(--bg-darker-gray);
+    }
+
     .navbar-navigation-icon {
         display: none;
     }
