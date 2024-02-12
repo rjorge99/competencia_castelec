@@ -63,11 +63,13 @@ const api = (function () {
 
         // Disposiciones
         if (scrollPosition >= disposicionesSection.offsetTop && scrollPosition < disposicionesSection.offsetTop + disposicionesSection.offsetHeight)
-            if (scrollPosition >= demostracionSection.offsetTop && scrollPosition < demostracionSection.offsetTop + demostracionSection.offsetHeight) {
-                // Demostracion
-                document.getElementsByClassName('navbar')[0].classList.add('navbar--blue');
-                setActiveLink('demostracion');
-            } else document.getElementsByClassName('navbar')[0].classList.remove('navbar--blue');
+            setActiveLink('disposiciones');
+
+        // Demostracion
+        if (scrollPosition >= demostracionSection.offsetTop && scrollPosition < demostracionSection.offsetTop + demostracionSection.offsetHeight) {
+            document.getElementsByClassName('navbar')[0].classList.add('navbar--blue');
+            setActiveLink('demostracion');
+        } else document.getElementsByClassName('navbar')[0].classList.remove('navbar--blue');
     });
     return {
         toggleSideMenu
