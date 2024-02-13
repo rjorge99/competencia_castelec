@@ -79,6 +79,8 @@ const api = (function () {
         });
 
         async function sendData() {
+            notify();
+            return;
             var myform = document.getElementById('form-demostracion');
             var formData = new FormData(myform);
 
@@ -168,3 +170,9 @@ const api = (function () {
         toggleSideMenu
     };
 })();
+
+function notify(message) {
+    new AWN({
+        // durations: { global: 100000 }
+    }).info('Mensaje enviado');
+}

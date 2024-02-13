@@ -448,3 +448,21 @@ textarea.form-control {
         font-size: 0.9rem;
     }
 }
+
+.awn-toast.awn-toast-info .awn-toast-wrapper {
+    border-color: #3b96cf;
+}
+
+.awn-toast.awn-toast-info b {
+    color: var(--bg-darker-gray);
+}
+
+.awn-toast.awn-toast-info {
+    background: #3b96cf;
+    color: var(--bg-darker-gray);
+}
+
+.awn-toast.awn-toast-info .awn-toast-progress-bar:after {
+    background: #1c76a6;
+    /* background: white; */
+}
