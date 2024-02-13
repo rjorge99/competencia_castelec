@@ -10,6 +10,7 @@ const api = (function () {
 
     // Click behaviour
     (function addPageEvents() {
+        // Agregar eventos click a menu lateral y de header
         (function addLinkClickEvents() {
             const links = document.getElementsByClassName('nav-link');
             for (let i = 0; i < links.length; i++) {
@@ -20,6 +21,7 @@ const api = (function () {
             }
         })();
 
+        // Eventos scroll para cambios de clases de menu dependiendo de la seccion
         document.addEventListener('scroll', function () {
             removeActiveLinks();
 
@@ -73,106 +75,61 @@ const api = (function () {
             document.querySelectorAll('.active').forEach((e) => e.classList.remove('active'));
         }
 
-        document.getElementById('form-demostracion').addEventListener('submit', function (e) {
-            e.preventDefault();
-            sendData();
-        });
+        // Evento al enviar la forma
+        document.getElementById('form-demostracion').addEventListener('submit', handleSubmit);
 
-        async function sendData() {
-            notify();
-            return;
-            var myform = document.getElementById('form-demostracion');
-            var formData = new FormData(myform);
+        async function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const data = new FormData(form);
+            const captcha = await saveCaptcha();
+            const postData = Object.fromEntries(data.entries());
 
-            fetch('https://api.castelec.mx/Castelec/Demostracion', {
+            postData.reCaptcha = captcha;
+            postData.campaing = captcha;
+            postData.bsbp = '';
+
+            fetch('https://software.castelec.mx/?c=ajax&action=solicitar', {
                 method: 'POST',
-                // headers: {
-                //     Accept: 'application/json',
-                //     'Content-Type': 'application/json'
-                // },
-                body: formData
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(postData)
             })
-                .then((response) => response.json())
+                .then((r) => r.json())
                 .then((data) => {
-                    if (data.StatusCode === 400) {
-                        let campo;
-                        switch (data.StatusDescription) {
-                            case 'name':
-                                campo = 'Nombre';
-                                $('#popUp').children().children()[1].innerText = "El campo 'Nombre' debe contener al menos 1 apellido";
-                                $('#popUp').show();
-                                $("[name= 'name']").addClass('campoInaceptable');
-                                break;
-                            case 'state':
-                                campo = 'Estado';
-                                $("[name= 'state']").addClass('campoInaceptable');
-                                break;
-                            case 'city':
-                                campo = 'Ciudad';
-                                $("[name= 'city']").addClass('campoInaceptable');
-                                break;
-                            case 'jobtitle':
-                                campo = 'Puesto del responsable';
-                                $("[name= 'jobtitle']").addClass('campoInaceptable');
-                                break;
-                            case 'source':
-                                campo = '¿Cómo se enteró de nosotros?';
-                                $("[name= 'source']").addClass('campoInaceptable');
-                                break;
-                            case 'company':
-                                campo = 'Empresa';
-                                $("[name= 'company']").addClass('campoInaceptable');
-                                break;
-                            case 'phone':
-                                campo = 'Teléfono';
-                                $("[name= 'phone']").addClass('campoInaceptable');
-                                break;
-                            case 'email':
-                                campo = 'Email';
-                                $("[name= 'email']").addClass('campoInaceptable');
-                                break;
-                            case 'promocode':
-                                campo = 'Código de promoción';
-                                $("[name= 'promocode']").addClass('campoInaceptable');
-                                break;
-                        }
-                        if (campo != 'Nombre') {
-                            $('#popUp').children().children()[1].innerText =
-                                'El campo: ' + campo + '\n es invalido. Verifica que no esté vacio o contenga caracteres especiales (ej. <, >, !, *, etc...)';
-                            $('#popUp').show();
-                        }
-                        $('#enviar').html('<img class="imagen_flecha"src="images/HomePage/Flecha_b_.svg" alt="">&nbsp;&nbsp;&nbsp;Enviar');
-                        $('#enviar').prop('disabled', false);
-                    } else if (data.StatusCode === 200) {
-                        $(this).attr('disabled', 'disabled');
-                        $(this).removeClass('gradiente-trans');
-                        $(this).css('filter', 'brightness');
-                        window.location.replace('confirmacionRecibo.html');
-                    } else if (data.StatusCode === 401) {
-                        $('#popUp').children().children()[1].innerText = `Ocurrio un error por favor intente más tarde.`;
-                        $('#popUp').show();
-                        $('#enviar').html('<img class="imagen_flecha"src="images/HomePage/Flecha_b_.svg" alt="">&nbsp;&nbsp;&nbsp;Enviar');
-                        $('#enviar').prop('disabled', false);
-                    }
+                    notify('Gracias por contactarnos.', 'info');
+                    form.reset();
                 })
-                .catch((textStatus) => {
-                    console.log(textStatus);
-                    $('#popUp').children().children()[1].innerText =
-                        'No se pudo procesar tu solicitud, inténtalo más tarde.\nSi el problema persiste, favor de reportarlo a Castelec.';
-                    $('#popUp').show();
-                    $('#enviar').html('<img class="imagen_flecha"src="images/HomePage/Flecha_b_.svg" alt="">&nbsp;&nbsp;&nbsp;Enviar');
-                    $('#enviar').prop('disabled', false);
+                .catch((err) => {
+                    notify('Ocurrió un error.', 'alert');
                 });
         }
+
+        function saveCaptcha() {
+            return new Promise((resolve) => {
+                let secret = `6LfCCQ8kAAAAAE1jfhrT8XRfL1LK26kC4ocd2_H8`;
+                grecaptcha.ready(function () {
+                    grecaptcha.execute(secret, { action: 'submit' }).then(function (token) {
+                        resolve({ token: token });
+                    });
+                });
+            });
+        }
     })();
+
+    // Encapsulacion del plugin de notificaciones
+    function notify(message, type) {
+        var options = {
+            info: { labels: { info: 'Notificación' } },
+            alert: { labels: { info: 'Error' } }
+        };
+
+        new AWN(options[type])[type](message);
+    }
 
     return {
         toggleSideMenu
     };
 })();
-
-function notify(message) {
-    new AWN({
-        // durations: { global: 100000 }
-    }).info('Mensaje enviado');
-}

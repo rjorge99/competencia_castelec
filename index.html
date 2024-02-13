@@ -11,7 +11,6 @@
         <link rel="stylesheet" href="css/normalize.css" />
         <link rel="stylesheet" href="css/notifications.css" />
         <link rel="stylesheet" href="css/styles.css" />
-        <script src="scripts/vue.global.js"></script>
         <script src="scripts/notifications.js"></script>
     </head>
     <body>
@@ -497,16 +496,33 @@
                     <div class="demostracion-title">Solicite una demostración</div>
                     <form id="form-demostracion" name="form-demostracion">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Nombre completo</label>
-                            <input autocomplete="off" placeholder="Nombre y apellido" type="text" class="form-control" id="nombre" />
+                            <label for="nombre" name="name" class="form-label">Nombre completo</label>
+                            <input autocomplete="off" placeholder="Nombre y apellido" type="text" class="form-control" id="nombre" required maxlength="200" />
                         </div>
                         <div class="mb-3">
-                            <label for="empresa" class="form-label">Empresa</label>
-                            <input autocomplete="off" placeholder="Nombre de la Empresa S.A. de C.V." type="text" class="form-control" id="empresa" />
+                            <label for="company" class="form-label">Empresa</label>
+                            <input
+                                autocomplete="off"
+                                placeholder="Nombre de la Empresa S.A. de C.V."
+                                type="text"
+                                name="company"
+                                class="form-control"
+                                id="company"
+                                required
+                                maxlength="100" />
                         </div>
                         <div class="mb-3">
-                            <label for="telefono" class="form-label">Teléfono fijo</label>
-                            <input autocomplete="off" placeholder="Lada + Teléfono (10 dígitos en total)" type="text" class="form-control" id="telefono" />
+                            <label for="phone" class="form-label">Teléfono fijo</label>
+                            <input
+                                autocomplete="off"
+                                type="tel"
+                                class="form-control"
+                                id="phone"
+                                name="phone"
+                                maxlength="10"
+                                placeholder="Lada + Teléfono (10 dígitos en total)"
+                                pattern="[0-9]{10}"
+                                required />
                         </div>
                         <div class="mb-2">
                             <label for="email" class="form-label">Correo electrónico</label>
@@ -514,22 +530,28 @@
                                 autocomplete="off"
                                 placeholder="Correo electrónico"
                                 type="email"
+                                name="email"
                                 class="form-control"
                                 id="email"
-                                aria-describedby="emailHelp" />
+                                aria-describedby="emailHelp"
+                                required />
                             <div id="emailHelp" class="form-text text-end fst-italic">Nunca compartiremos tu email</div>
                         </div>
                         <div class="mb-3">
-                            <label for="ayuda" class="form-label">¿Como podemos ayudarle?</label>
+                            <label for="comments" class="form-label">¿Como podemos ayudarle?</label>
                             <textarea
                                 class="form-control"
                                 rows="4"
                                 placeholder="¿En al menos 5 palabra, que áreas de su empresa requieren un mejor control?"
-                                id="ayuda"></textarea>
+                                id="ayuda"
+                                name="comments"
+                                required
+                                id="comments"
+                                maxlength="400"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="state" class="form-label">Estado</label>
-                            <select name="state" class="form-select">
+                            <select name="state" class="form-select" required>
                                 <option value="">-Selecciona tu estado-</option>
                                 <option>Aguascalientes</option>
                                 <option>Baja California</option>
@@ -576,6 +598,7 @@
                 </div>
             </div>
         </section>
+        <script src="https://www.google.com/recaptcha/api.js?render=6LfCCQ8kAAAAAE1jfhrT8XRfL1LK26kC4ocd2_H8"></script>
         <script src="scripts/script.js"></script>
     </body>
 </html>

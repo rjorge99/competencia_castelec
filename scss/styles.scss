@@ -127,6 +127,10 @@ img {
     &.button--blue-dark {
         background-color: var(--fnt-dark-blue);
         color: var(--bg-white);
+
+        &:hover {
+            background-color: #4b8abe;
+        }
     }
 
     &.button--small-font {
@@ -567,4 +571,30 @@ textarea.form-control {
     .navbar {
         font-size: 0.9rem;
     }
+}
+
+.awn-toast.awn-toast-info .awn-toast-wrapper {
+    border-color: #3b96cf;
+}
+
+.awn-toast.awn-toast-info b {
+    color: var(--bg-darker-gray);
+}
+
+.awn-toast.awn-toast-info {
+    background: #3b96cf;
+    color: var(--bg-darker-gray);
+}
+
+.awn-toast.awn-toast-info .awn-toast-progress-bar:after {
+    background: #1c76a6;
+}
+
+.awn-toast-label {
+    font-size: 0.9rem;
+    text-transform: none;
+}
+
+.awn-toast {
+    font-size: 0.7rem;
 }
