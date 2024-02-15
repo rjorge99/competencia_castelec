@@ -22,7 +22,9 @@ const api = (function () {
         })();
 
         // Eventos scroll para cambios de clases de menu dependiendo de la seccion
-        document.addEventListener('scroll', function () {
+        document.addEventListener('scroll', addScrollEvent);
+
+        function addScrollEvent() {
             removeActiveLinks();
 
             const principalSection = document.querySelector('#principales');
@@ -35,36 +37,38 @@ const api = (function () {
 
             let scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
+            // Demostracion
+            if (scrollPosition >= demostracionSection.offsetTop && scrollPosition < demostracionSection.offsetTop + demostracionSection.offsetHeight) {
+                document.getElementsByClassName('navbar')[0].classList.add('navbar--blue');
+                return setActiveLink('demostracion');
+            } else document.getElementsByClassName('navbar')[0].classList.remove('navbar--blue');
+
             // Principal
             if (scrollPosition >= principalSection.offsetTop && scrollPosition < principalSection.offsetTop + principalSection.offsetHeight) {
                 document.getElementsByClassName('navbar')[0].classList.remove('navbar--dark');
-                setActiveLink('principales');
+                return setActiveLink('principales');
             } else document.getElementsByClassName('navbar')[0].classList.add('navbar--dark');
 
             // Generales
             if (scrollPosition >= generalesSection.offsetTop && scrollPosition < generalesSection.offsetTop + generalesSection.offsetHeight)
-                setActiveLink('generales');
+                return setActiveLink('generales');
 
             //Ventas
-            if (scrollPosition >= ventasSection.offsetTop && scrollPosition < ventasSection.offsetTop + ventasSection.offsetHeight) setActiveLink('ventas');
+            if (scrollPosition >= ventasSection.offsetTop && scrollPosition < ventasSection.offsetTop + ventasSection.offsetHeight)
+                return setActiveLink('ventas');
 
             //Almacen
-            if (scrollPosition >= almacenSection.offsetTop && scrollPosition < almacenSection.offsetTop + almacenSection.offsetHeight) setActiveLink('almacen');
+            if (scrollPosition >= almacenSection.offsetTop && scrollPosition < almacenSection.offsetTop + almacenSection.offsetHeight)
+                return setActiveLink('almacen');
 
             //Contabilidad
             if (scrollPosition >= contabilidadSection.offsetTop && scrollPosition < contabilidadSection.offsetTop + contabilidadSection.offsetHeight)
-                setActiveLink('contabilidad');
+                return setActiveLink('contabilidad');
 
             // Disposiciones
             if (scrollPosition >= disposicionesSection.offsetTop && scrollPosition < disposicionesSection.offsetTop + disposicionesSection.offsetHeight)
-                setActiveLink('disposiciones');
-
-            // Demostracion
-            if (scrollPosition >= demostracionSection.offsetTop && scrollPosition < demostracionSection.offsetTop + demostracionSection.offsetHeight) {
-                document.getElementsByClassName('navbar')[0].classList.add('navbar--blue');
-                setActiveLink('demostracion');
-            } else document.getElementsByClassName('navbar')[0].classList.remove('navbar--blue');
-        });
+                return setActiveLink('disposiciones');
+        }
 
         function setActiveLink(href) {
             const linksToActivate = document.getElementsByClassName(`lnk${href}`);
@@ -82,14 +86,16 @@ const api = (function () {
             event.preventDefault();
             const form = event.target;
             const data = new FormData(form);
-            const captcha = await saveCaptcha();
+            const captcha = 'INFO';
+            await saveCaptcha();
             const postData = Object.fromEntries(data.entries());
 
             postData.reCaptcha = captcha;
-            postData.campaing = captcha;
+            postData.campaing = '';
             postData.bsbp = '';
 
-            fetch('https://software.castelec.mx/?c=ajax&action=solicitar', {
+            disableBotonEnvio();
+            fetch('https://api.castelec.mx/Castelec/Mailing', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -99,12 +105,32 @@ const api = (function () {
             })
                 .then((r) => r.json())
                 .then((data) => {
+                    enableBotonEnvio();
+
+                    if (data.StatusCode && (data.StatusCode === 500 || data.StatusCode === 401))
+                        return notify('Ocurrió un error, por favor intente más tarde.', 'alert');
+
+                    if (data.StatusCode && data.StatusCode === 400) return notify('Favor de validar la información.', 'alert');
+
                     notify('Gracias por contactarnos.', 'info');
                     form.reset();
                 })
                 .catch((err) => {
-                    notify('Ocurrió un error.', 'alert');
+                    enableBotonEnvio();
+                    notify('Ocurrió un error, por favor intente más tarde.', 'alert');
                 });
+        }
+
+        function enableBotonEnvio() {
+            const botonDemostracion = document.getElementById('boton-demotracion');
+            botonDemostracion.innerHTML = 'Quiero una demostración';
+            botonDemostracion.removeAttribute('disabled');
+        }
+
+        function disableBotonEnvio() {
+            const botonDemostracion = document.getElementById('boton-demotracion');
+            botonDemostracion.innerHTML = 'Enviando...';
+            botonDemostracion.setAttribute('disabled', true);
         }
 
         function saveCaptcha() {
@@ -127,6 +153,17 @@ const api = (function () {
         };
 
         new AWN(options[type])[type](message);
+    }
+
+    function debounce(fn, timeout) {
+        let timeoutReference;
+
+        return function () {
+            clearTimeout(timeoutReference);
+            timeoutReference = setTimeout(() => {
+                fn();
+            }, timeout);
+        };
     }
 
     return {
