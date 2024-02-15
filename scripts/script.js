@@ -86,8 +86,7 @@ const api = (function () {
             event.preventDefault();
             const form = event.target;
             const data = new FormData(form);
-            const captcha = 'INFO';
-            await saveCaptcha();
+            const captcha = 'INFO'; //            await saveCaptcha();
             const postData = Object.fromEntries(data.entries());
 
             postData.reCaptcha = captcha;
