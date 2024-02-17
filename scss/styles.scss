@@ -71,6 +71,10 @@ img {
     }
 }
 
+section {
+    height: 100vh;
+}
+
 // Grid
 .grid {
     display: grid;
@@ -374,7 +378,6 @@ li {
 .demostracion {
     background-color: var(--fnt-blue);
     padding-block: 7rem;
-    height: 101vh;
 
     & .demostracion-title {
         font-weight: bold;
