@@ -89,7 +89,7 @@ const api = (function () {
             const captcha = await saveCaptcha();
             const postData = Object.fromEntries(data.entries());
 
-            postData.reCaptcha = captcha;
+            postData.reCaptcha = captcha.token;
             postData.campaing = '';
             postData.bsbp = '';
 
